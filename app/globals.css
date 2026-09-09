@@ -1,26 +1,298 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  font-family: var(--font-inter), sans-serif;
+  background: #f7f5f1;
+  color: #2d2a26;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.wedding-card {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 55px 30px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #e5e0d7;
+  border-radius: 24px;
+  box-shadow: 0 15px 50px rgba(60, 50, 40, 0.08);
+}
+
+.decorative-line {
+  width: 60px;
+  height: 1px;
+  background: #b7aa96;
+  margin: 0 auto 30px;
+}
+
+.welcome-text {
+  margin: 0 0 12px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: #777066;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-playfair), serif;
+  font-size: 52px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #302c27;
+}
+
+.instruction {
+  margin: 18px 0 0;
+  font-size: 15px;
+  color: #777066;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 32px auto 0;
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 17px 18px;
+  border: 1px solid #d8d1c6;
+  border-radius: 12px;
+  background: white;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  color: #302c27;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-container input::placeholder {
+  color: #aaa39a;
+}
+
+.search-container input:focus {
+  border-color: #a99b87;
+  box-shadow: 0 0 0 3px rgba(169, 155, 135, 0.12);
+}
+
+.suggestions {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e1dcd4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(50, 40, 30, 0.1);
+  z-index: 10;
+  text-align: left;
+}
+
+.suggestions button {
+  display: block;
+  width: 100%;
+  padding: 15px 18px;
+  border: none;
+  border-bottom: 1px solid #f0ede8;
+  background: white;
+  text-align: left;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 15px;
+  color: #302c27;
+  cursor: pointer;
+}
+
+.suggestions button:last-child {
+  border-bottom: none;
+}
+
+.suggestions button:hover {
+  background: #f8f6f2;
+}
+
+.table-result {
+  margin: 30px auto 0;
+  padding: 24px;
+  background: #f8f6f2;
+  border: 1px solid #e2ddd4;
+  border-radius: 16px;
+}
+
+.table-result p {
+  margin: 0 0 7px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #81796f;
+}
+
+.table-number-circle {
+  width: 90px;
+  height: 90px;
+  margin: 16px auto 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid #a99b87;
+  border-radius: 50%;
+  background: #fff;
+
+  font-family: var(--font-playfair), serif;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+
+  color: #302c27;
+}
+
+.footer-text {
+  margin: 40px 0 0;
+  font-family: var(--font-playfair), serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #91887d;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 15px;
+  }
+
+  .wedding-card {
+    padding: 45px 20px;
+    border-radius: 20px;
+  }
+
+  .welcome-text {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .instruction {
+    font-size: 14px;
+  }
+
+  .footer-text {
+    margin-top: 32px;
+    font-size: 14px;
+  }
+}
+
+.floorplan-section {
+  margin-top: 45px;
+}
+
+.floorplan-section h2 {
+  margin: 0 0 18px;
+  font-family: var(--font-playfair), serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #302c27;
+}
+
+.floorplan-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #e2ddd4;
+}
+
+.floorplan-button-container {
+  margin-top: 20px;
+}
+
+.floorplan-link {
+  display: block;
+  width: 100%;
+  padding: 13px 20px;
+  border: 1px solid #d8d1c6;
+  border-radius: 10px;
+  background: white;
+  color: #6f6252;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.floorplan-link:hover {
+  background: #f7f4ef;
+  border-color: #b8aa98;
+}
+
+.floorplan-link:hover {
+  color: #302c27;
+}
+
+.floorplan-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(30, 27, 23, 0.75);
+}
+
+.floorplan-modal {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 95vh;
+  padding: 10px;
+  background: #f7f5f1;
+  border-radius: 16px;
+  overflow: auto;
+}
+
+.floorplan-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close-floorplan {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 101;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #302c27;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
