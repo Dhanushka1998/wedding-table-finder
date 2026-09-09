@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sandun & Dilini",
     description:
-      "Welcome to our Home coming • Find your table number",
+      "Find your table number",
     url: "https://sandundilini.vercel.app",
     siteName: "Sandun & Dilini",
     images: [
